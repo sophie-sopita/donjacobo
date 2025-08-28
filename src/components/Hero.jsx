@@ -1,3 +1,5 @@
+import { products } from '../data.js';
+
 export default function Hero() {
   return (
     <main 
@@ -25,6 +27,15 @@ export default function Hero() {
           Compra YA
         </button>
       </article>
+      
+      {/* Carrito antes del cierre de main - Renderizado condicional */}
+      {products.length > 0 && (
+        <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 rounded-lg p-3">
+          <p className="text-gray-800 text-sm font-medium">
+            {products.length} {products.length === 1 ? 'producto' : 'productos'} disponibles
+          </p>
+        </div>
+      )}
     </main>
   );
 }
